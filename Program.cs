@@ -295,31 +295,7 @@ abstract class Mamifero : Animal
     public bool Pelos { get; init; }
     public string? CorDoPelo { get; init; }
 
-    public override void Movimentar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou um mamífero qualquer se movimentando!");
-    }
-
-    public override void Comunicar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou um mamífero qualquer se comunicando!");
-    }
-
-    public override void Alimentar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou um mamífero qualquer se alimentando!");
-    }
-
-    public virtual void Amamentar()
-    {
-        if (Sexo.Equals("M"))
-        {
-            Console.WriteLine($"Eu ({Nome}) sou um mamífero qualquer macho, então não posso amamentar");
-            return;
-        }
-
-        Console.WriteLine($"Eu ({Nome}) sou um mamífero qualquer e posso amamentar até {QtdeMamas} filhotes");
-    }
+    public abstract void Amamentar();
 }
 
 class Leao : Mamifero
@@ -540,25 +516,10 @@ class Morcego : Mamifero, IVoar
     }
 }
 
-
-class Ave : Animal
+abstract class Ave : Animal
 {
     public bool Rapina { get; set; }
-    public bool CorPena { get; set; }
-    public override void Movimentar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou uma ave qualquer se movimentando!");
-    }
-
-    public override void Comunicar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou uma ave qualquer se comunicando!");
-    }
-
-    public override void Alimentar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou uma ave qualquer se alimentando!");
-    }    
+    public bool CorPena { get; set; }   
 }
 
 class Cisne : Ave, IVoar, IOviparo, IAquatico
@@ -768,22 +729,9 @@ class Pinguim : Ave, IOviparo, IAquatico
     }
 }
 
-class Reptil : Animal
+abstract class Reptil : Animal
 {
-    public override void Movimentar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou um reptil qualquer se movimentando!");
-    }
-
-    public override void Comunicar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou um reptil qualquer se comunicando!");
-    }
-
-    public override void Alimentar()
-    {
-        Console.WriteLine($"Eu ({Nome}) sou um reptil qualquer se alimentando!");
-    }
+    
 }
 
 class DragaoDeComodo : Reptil, IOviparo
